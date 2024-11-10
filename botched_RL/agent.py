@@ -44,6 +44,7 @@ class RLAgent:
             if not done:
                 target += GAMMA * torch.max(self.model(next_state)).item()
             target_f = self.model(state)
+            target_f = target_f.clone().detach()
             target_f[action] = target
             loss = self.criterion(target_f, torch.FloatTensor([target]))
             self.optimizer.zero_grad()

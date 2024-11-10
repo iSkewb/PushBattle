@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from PushBattle import Game, PLAYER1, PLAYER2, EMPTY, BOARD_SIZE, NUM_PIECES, _torus
 
 # Import This
-from slightly_better_agent import ImprovedAgent
+from bigAgent import ImprovedAgent
 
 app = Flask(__name__)
 
