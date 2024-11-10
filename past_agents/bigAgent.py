@@ -115,7 +115,16 @@ class ImprovedAgent:
         possible_moves = self.get_possible_moves(game)
         # Ensure the format matches expected move format for `apply_move`
         if move in possible_moves:
-            game.apply_move(move)
+            if len(move) == 2:
+                game.board[move[0]][move[1]] = game.current_player
+                if game.current_player == PLAYER1:
+                    game.p1_pieces += 1
+                else:
+                    game.p2_pieces += 1
+            else:
+                game.board[move[2]][move[3]] = game.board[move[0]][move[1]]
+                game.board[move[0]][move[1]] = EMPTY
+            game.current_player = PLAYER2 if game.current_player == PLAYER1 else PLAYER1
             return True
         else:
             print(f"Invalid move format: {move} not in {possible_moves}")

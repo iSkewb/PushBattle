@@ -5,6 +5,9 @@ from PushBattle import Game, PLAYER1, PLAYER2, EMPTY, BOARD_SIZE, NUM_PIECES, _t
 
 # Import This
 from random_agent import RandomAgent
+# from powerBob import ImprovedAgent
+
+
 
 app = Flask(__name__)
 
@@ -34,6 +37,7 @@ def start_game():
 
     ##### MODIFY BELOW #####
 
+    # agent = RandomAgent()
     agent = RandomAgent()
 
     ###################
